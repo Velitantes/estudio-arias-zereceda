@@ -120,47 +120,6 @@
     @apply border border-on-background text-on-background font-subheading-caps text-subheading-caps px-8 py-4 uppercase tracking-[0.2em] hover:border-primary hover:text-primary transition-colors duration-300;
   }
 
-  .editorial-divider {
-    border-top: 1px solid rgba(32, 26, 23, 0.1);
-    position: relative;
-  }
-
-  .editorial-divider::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 5px;
-    height: 5px;
-    background-color: var(--color-primary);
-    border-radius: 50%;
-  }
-
-  .signature-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .signature-divider::before,
-  .signature-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background-color: var(--color-on-surface);
-    opacity: 0.15;
-  }
-
-  .signature-divider .dot {
-    width: 4px;
-    height: 4px;
-    background-color: var(--color-primary);
-    margin: 0 16px;
-    border-radius: 50%;
-  }
-
   .signature-divider-square {
     display: flex;
     align-items: center;
