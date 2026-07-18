@@ -14,69 +14,97 @@ const links = [
 ];
 ---
 
-<nav class="bg-surface dark:bg-surface text-primary dark:text-primary-fixed-dim w-full top-0 sticky border-b border-outline-variant opacity-95 z-50 transition-colors">
-  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto w-full">
+<nav
+  class="bg-surface dark:bg-surface text-primary dark:text-primary-fixed-dim w-full top-0 sticky border-b border-outline-variant opacity-95 z-50 transition-colors"
+>
+  <div
+    class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto w-full"
+  >
     <!-- Brand -->
     <a href="/" class="flex items-center hover:opacity-80 transition-opacity">
-      <img src="/images/logo_header_new.png" alt="Arias & Zereceda" class="h-24 w-auto" />
+      <img
+        src="/images/logo_header_new.png"
+        alt="Arias & Zereceda"
+        class="h-20 md:h-24 w-auto"
+      />
     </a>
 
     <!-- Desktop Nav -->
-    <ul class="hidden md:flex gap-gutter items-center">
-      {links.map(link => {
-        const isActive = currentPage === link.href || (currentPage === "" && link.href === "/");
-        return (
-          <li>
-            <a 
-              href={link.href} 
-              class={`font-subheading-caps text-subheading-caps hover:text-primary transition-colors duration-300 ${
-                isActive 
-                  ? "text-primary font-bold border-b border-primary pb-1" 
-                  : "text-on-surface-variant"
-              }`}
-            >
-              {link.text}
-            </a>
-          </li>
-        );
-      })}
+    <ul class="hidden md:flex gap-4 lg:gap-8 items-center">
+      {
+        links.map((link) => {
+          const isActive =
+            currentPage === link.href ||
+            (currentPage === "" && link.href === "/");
+          return (
+            <li>
+              <a
+                href={link.href}
+                class={`font-subheading-caps text-subheading-caps hover:text-primary transition-colors duration-300 ${
+                  isActive
+                    ? "text-primary font-bold border-b border-primary pb-1"
+                    : "text-on-surface-variant"
+                }`}
+              >
+                {link.text}
+              </a>
+            </li>
+          );
+        })
+      }
     </ul>
 
     <!-- Trailing Action -->
     <div class="hidden md:flex">
-      <a href="/contacto" class="btn-primary py-3 px-6 text-xs whitespace-nowrap scale-95 hover:scale-100 flex items-center justify-center">
+      <a
+        href="/contacto"
+        class="btn-primary py-3 px-5 text-xs whitespace-nowrap flex items-center justify-center"
+      >
         Escríbenos
       </a>
     </div>
 
     <!-- Mobile Menu Toggle -->
-    <button id="mobile-menu-toggle" class="md:hidden text-on-surface p-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+    <button
+      id="mobile-menu-toggle"
+      class="md:hidden text-on-surface p-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+    >
       <span class="material-symbols-outlined text-2xl">menu</span>
     </button>
   </div>
 
   <!-- Mobile Menu (hidden by default) -->
-  <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-outline-variant absolute w-full left-0 shadow-lg">
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-surface border-t border-outline-variant absolute w-full left-0 shadow-lg"
+  >
     <ul class="flex flex-col py-4">
-      {links.map(link => {
-        const isActive = currentPage === link.href || (currentPage === "" && link.href === "/");
-        return (
-          <li>
-            <a 
-              href={link.href} 
-              class={`block px-margin-mobile py-4 font-subheading-caps text-subheading-caps transition-colors ${
-                isActive 
-                  ? "bg-surface-variant text-primary font-bold border-l-4 border-primary" 
-                  : "text-on-surface-variant hover:bg-surface-variant hover:text-primary"
-              }`}
-            >
-              {link.text}
-            </a>
-          </li>
-        );
-      })}
+      {
+        links.map((link) => {
+          const isActive =
+            currentPage === link.href ||
+            (currentPage === "" && link.href === "/");
+          return (
+            <li>
+              <a
+                href={link.href}
+                class={`block px-margin-mobile py-4 font-subheading-caps text-subheading-caps transition-colors ${
+                  isActive
+                    ? "bg-surface-variant text-primary font-bold border-l-4 border-primary"
+                    : "text-on-surface-variant hover:bg-surface-variant hover:text-primary"
+                }`}
+              >
+                {link.text}
+              </a>
+            </li>
+          );
+        })
+      }
       <li class="px-margin-mobile py-4 mt-2">
-        <a href="/contacto" class="btn-primary py-3 px-6 text-center w-full block">
+        <a
+          href="/contacto"
+          class="btn-primary py-3 px-6 text-center w-full block"
+        >
           Escríbenos
         </a>
       </li>
@@ -85,15 +113,15 @@ const links = [
 </nav>
 
 <script>
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const menu = document.getElementById('mobile-menu');
+  const toggleBtn = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
 
   if (toggleBtn && menu) {
-    toggleBtn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      const icon = toggleBtn.querySelector('span');
+    toggleBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      const icon = toggleBtn.querySelector("span");
       if (icon) {
-        icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+        icon.textContent = menu.classList.contains("hidden") ? "menu" : "close";
       }
     });
   }
