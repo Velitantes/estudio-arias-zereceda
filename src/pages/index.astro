@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PracticeAreaCard from '../components/PracticeAreaCard.astro';
+
+const practiceAreas = [
+  {
+    title: "Derecho Penal",
+    description: "Defensa estratégica y rigurosa en litigios penales complejos, delitos económicos y compliance corporativo.",
+    icon: "gavel",
+    href: "/areas"
+  },
+  {
+    title: "Derecho de Familia",
+    description: "Asesoramiento sensible y discreto en asuntos patrimoniales, sucesiones y resolución de conflictos familiares.",
+    icon: "family_restroom",
+    href: "/areas"
+  },
+  {
+    title: "Derecho Constitucional",
+    description: "Protección de derechos fundamentales, procesos de amparo y asesoría en materia constitucional.",
+    icon: "account_balance",
+    href: "/areas"
+  },
+  {
+    title: "Derecho Civil",
+    description: "Elaboración de contratos, responsabilidad civil, derechos reales y litigios civiles de alta complejidad.",
+    icon: "handshake",
+    href: "/areas"
+  },
+  {
+    title: "Derecho Administrativo",
+    description: "Gestión ante entidades públicas, procedimientos sancionadores, licitaciones y contrataciones con el Estado.",
+    icon: "business",
+    href: "/areas"
+  },
+  {
+    title: "Derecho Corporativo",
+    description: "Estructuración societaria, fusiones y adquisiciones, gobierno corporativo y asesoría empresarial integral.",
+    icon: "corporate_fare",
+    href: "/areas"
+  }
+];
+---
+
+<BaseLayout title="Arias & Zereceda Abogados Asociados" currentPage="/">
+  
+  <!-- Hero Section -->
+  <header class="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-margin-mobile md:px-margin-desktop pt-32 pb-section-gap overflow-hidden">
+    <!-- Abstract Background Element -->
+    <div class="absolute inset-0 z-0 opacity-15 flex justify-center items-center pointer-events-none">
+      <img src="/images/logo_icono_new.png" alt="" class="w-full max-w-4xl object-contain opacity-50 mix-blend-multiply" />
+    </div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-8">
+      <span class="font-subheading-caps text-subheading-caps text-primary tracking-[0.3em] uppercase">Excelencia & Ética</span>
+      <h1 class="font-display-lg text-display-lg md:text-[80px] text-on-background leading-tight">
+        Asesoría legal integral y estratégica.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
+        Penal · Familia · Constitucional · Civil · Administrativo · Corporativo
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-6 mt-8 w-full sm:w-auto justify-center">
+        <a href="/contacto" class="btn-primary w-full sm:w-auto text-center">Agenda una consulta</a>
+        <a href="#nosotros" class="btn-outline w-full sm:w-auto text-center">Conócenos</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Divider -->
+  <div class="w-full max-w-container-max mx-auto px-margin-desktop">
+    <div class="editorial-divider"></div>
+  </div>
+
+  <!-- About Us Section -->
+  <section id="nosotros" class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+    <div class="md:col-span-5">
+      <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">
+        Estudio jurídico de referencia en Perú.
+      </h2>
+    </div>
+    <div class="md:col-span-1 md:col-start-7 hidden md:block border-l border-outline-variant h-full opacity-30"></div>
+    <div class="md:col-span-5 md:col-start-8 flex flex-col gap-6">
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        Nuestra misión es brindar un servicio legal de excelencia, fundamentado en una ética inquebrantable y una transparencia absoluta. Entendemos que cada caso requiere un enfoque a medida, combinando rigor académico con estrategias prácticas para resolver los conflictos más complejos.
+      </p>
+      <p class="font-body-md text-body-md text-on-surface-variant">
+        Nos distanciamos de las prácticas convencionales para ofrecer un asesoramiento moderno, ágil y profundamente comprometido con los intereses y la tranquilidad de nuestros clientes corporativos y particulares.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="equipo" class="bg-surface-container py-section-gap px-margin-mobile md:px-margin-desktop">
+    <div class="max-w-container-max mx-auto">
+      <div class="text-center mb-16">
+        <span class="font-subheading-caps text-subheading-caps text-primary tracking-[0.2em] uppercase block mb-4">Nuestro Liderazgo</span>
+        <h2 class="font-headline-md text-headline-md text-on-background">Socios Fundadores</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+        <!-- Partner 1 -->
+        <article class="group border border-outline-variant/30 p-8 bg-surface-container-lowest hover:border-primary/50 transition-colors duration-500 flex flex-col">
+          <div class="w-full aspect-[4/3] bg-surface-variant mb-8 overflow-hidden relative">
+            <img src="/images/dra-arias.jpg" alt="Dra. Luz Angela Arias Vásquez" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" />
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-background mb-2">Dra. Luz Angela Arias Vásquez</h3>
+          <div class="flex flex-wrap gap-2 mt-auto pt-4">
+            <span class="font-label-sm text-label-sm text-primary border border-primary/20 px-3 py-1 uppercase">Penal</span>
+            <span class="font-label-sm text-label-sm text-primary border border-primary/20 px-3 py-1 uppercase">Familia</span>
+            <span class="font-label-sm text-label-sm text-primary border border-primary/20 px-3 py-1 uppercase">Constitucional</span>
+            <span class="font-label-sm text-label-sm text-primary border border-primary/20 px-3 py-1 uppercase">Corporativo</span>
+          </div>
+        </article>
+
+        <!-- Partner 2 -->
+        <article class="group border border-outline-variant/30 p-8 bg-surface-container-lowest hover:border-primary/50 transition-colors duration-500 flex flex-col">
+          <div class="w-full aspect-[4/3] bg-surface-variant mb-8 overflow-hidden relative">
+            <img src="/images/dr-zereceda.jpg" alt="Dr. Rodrigo Juvenal Zereceda García" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" />
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-background mb-2">Dr. Rodrigo Juvenal Zereceda García</h3>
+          <div class="flex flex-wrap gap-2 mt-auto pt-4">
+            <span class="font-label-sm text-label-sm text-primary border border-primary/20 px-3 py-1 uppercase">Penal</span>
+            <span class="font-label-sm text-label-sm text-primary border border-primary/20 px-3 py-1 uppercase">Civil</span>
+            <span class="font-label-sm text-label-sm text-primary border border-primary/20 px-3 py-1 uppercase">Administrativo</span>
+            <span class="font-label-sm text-label-sm text-primary border border-primary/20 px-3 py-1 uppercase">Corporativo</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas -->
+  <section id="areas" class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div class="max-w-2xl">
+        <span class="font-subheading-caps text-subheading-caps text-primary tracking-[0.2em] uppercase block mb-4">Especialidades</span>
+        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">
+          Áreas de Práctica
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8">
+      {practiceAreas.map(area => (
+        <PracticeAreaCard {...area} />
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>

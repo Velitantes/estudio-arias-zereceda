@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contáctenos | Arias & Zereceda" currentPage="/contacto">
+  <main class="flex-grow flex flex-col pt-12 md:pt-24 pb-section-gap relative">
+    <!-- Abstract Background Element -->
+    <div class="absolute inset-0 bg-hero-pattern opacity-10 pointer-events-none"></div>
+    
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full relative z-10 flex flex-col gap-16">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col gap-4 max-w-2xl">
+        <span class="font-subheading-caps text-subheading-caps text-primary uppercase tracking-widest">Atención Personalizada</span>
+        <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface">Estamos aquí para escucharlo.</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">Concertemos una reunión para evaluar su caso con la rigurosidad y confidencialidad que nos caracteriza.</p>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-24 relative">
+        <!-- Center Divider Line (Desktop) -->
+        <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant opacity-30 transform -translate-x-1/2"></div>
+        
+        <!-- Left Column: Form -->
+        <div class="lg:col-span-6 flex flex-col gap-8 pr-0 lg:pr-8">
+          <form class="flex flex-col gap-8" action="#" method="POST" id="contact-form">
+            <div class="flex flex-col gap-2 relative">
+              <label for="nombre" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Nombre Completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="flex flex-col gap-2 relative">
+                <label for="email" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
+              </div>
+              <div class="flex flex-col gap-2 relative">
+                <label for="telefono" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="+51 ..." class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
+              </div>
+            </div>
+            
+            <div class="flex flex-col gap-2 relative">
+              <label for="area" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Área de Interés</label>
+              <div class="relative w-full">
+                <select id="area" name="area" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors appearance-none outline-none" required>
+                  <option value="" disabled selected>Seleccione una opción</option>
+                  <option value="penal">Derecho Penal</option>
+                  <option value="familia">Derecho de Familia</option>
+                  <option value="constitucional">Derecho Constitucional</option>
+                  <option value="civil">Derecho Civil</option>
+                  <option value="administrativo">Derecho Administrativo</option>
+                  <option value="corporativo">Derecho Corporativo</option>
+                </select>
+                <span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">arrow_drop_down</span>
+              </div>
+            </div>
+            
+            <div class="flex flex-col gap-2 relative">
+              <label for="mensaje" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Describa brevemente su consulta..." rows="4" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 resize-none outline-none" required></textarea>
+            </div>
+            
+            <button type="submit" class="self-start px-8 py-4 bg-on-surface text-surface font-subheading-caps text-subheading-caps hover:bg-primary transition-colors duration-300 rounded-none flex items-center gap-3 group mt-4">
+              Enviar Mensaje
+              <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </button>
+          </form>
+        </div>
+        
+        <!-- Right Column: Info & Locations -->
+        <div class="lg:col-span-6 flex flex-col gap-12 pl-0 lg:pl-8 mt-12 lg:mt-0">
+          <!-- Direct Contact -->
+          <div class="flex flex-col gap-6 p-8 border border-outline-variant border-opacity-20 relative bg-surface-container-low">
+            <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+            <h3 class="font-headline-md text-headline-md text-on-surface">Contacto Directo</h3>
+            <div class="flex flex-col gap-4 font-body-md text-on-surface-variant">
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary">call</span>
+                <a href="tel:+5112345678" class="hover:text-primary transition-colors">+51 (1) 234-5678</a>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary">mail</span>
+                <a href="mailto:contacto@ariaszereceda.pe" class="hover:text-primary transition-colors">contacto@ariaszereceda.pe</a>
+              </div>
+            </div>
+            <a href="https://wa.me/5112345678" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-primary text-primary font-subheading-caps text-subheading-caps hover:bg-primary hover:text-surface transition-colors rounded-none mt-2 self-start">
+              <span class="material-symbols-outlined text-lg">chat</span>
+              Atención vía WhatsApp
+            </a>
+          </div>
+          
+          <!-- Locations Divider -->
+          <div class="flex items-center gap-4">
+            <div class="h-px bg-outline-variant opacity-30 flex-grow"></div>
+            <span class="font-subheading-caps text-subheading-caps text-on-surface-variant">Nuestras Sedes</span>
+            <div class="h-px bg-outline-variant opacity-30 flex-grow"></div>
+          </div>
+          
+          <!-- Locations Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Sede Surco -->
+            <div class="flex flex-col gap-3 group">
+              <h4 class="font-headline-md text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">Santiago de Surco</h4>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Av. El Derby 254, Oficina 1204<br/>
+                Edificio Lima Central Tower<br/>
+                Lima, Perú
+              </p>
+              <a href="#" class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2 hover:opacity-80 transition-opacity">
+                Ver en Mapa <span class="material-symbols-outlined text-sm">open_in_new</span>
+              </a>
+            </div>
+            
+            <!-- Sede San Borja -->
+            <div class="flex flex-col gap-3 group">
+              <h4 class="font-headline-md text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">San Borja</h4>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Calle Las Camelias 435<br/>
+                Piso 3<br/>
+                Lima, Perú
+              </p>
+              <a href="#" class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2 hover:opacity-80 transition-opacity">
+                Ver en Mapa <span class="material-symbols-outlined text-sm">open_in_new</span>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Social Media -->
+          <div class="mt-4 flex flex-col gap-4">
+            <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Síguenos en:</span>
+            <div class="flex gap-4">
+              <a href="#" class="w-10 h-10 border border-outline-variant opacity-50 flex items-center justify-center text-on-surface hover:border-primary hover:text-primary hover:opacity-100 transition-all rounded-none">
+                <span class="material-symbols-outlined text-lg">public</span>
+              </a>
+              <a href="#" class="w-10 h-10 border border-outline-variant opacity-50 flex items-center justify-center text-on-surface hover:border-primary hover:text-primary hover:opacity-100 transition-all rounded-none">
+                <span class="material-symbols-outlined text-lg">work</span>
+              </a>
+              <a href="#" class="w-10 h-10 border border-outline-variant opacity-50 flex items-center justify-center text-on-surface hover:border-primary hover:text-primary hover:opacity-100 transition-all rounded-none">
+                <span class="material-symbols-outlined text-lg">share</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <style>
+    .bg-hero-pattern {
+      background-image: radial-gradient(#d7c2b7 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+  </style>
+
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Gracias por su mensaje. Nos pondremos en contacto con usted a la brevedad posible.');
+        form.reset();
+      });
+    }
+  </script>
+</BaseLayout>

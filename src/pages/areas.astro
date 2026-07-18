@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const practiceAreas = [
+  {
+    title: "Derecho Penal",
+    description: "Defensa técnica altamente especializada. Destacamos en la representación en investigaciones por delitos contra la administración pública (corrupción de funcionarios) y poseemos amplia experiencia en el manejo de procesos complejos derivados de la ley de violencia contra la mujer y los integrantes del grupo familiar.",
+    icon: "gavel",
+  },
+  {
+    title: "Derecho de Familia",
+    description: "Abordamos las crisis familiares con sensibilidad y firmeza. Contamos con un historial de éxito comprobado en la tramitación de procesos de alimentos (fijación, aumento, reducción) y actuamos con celeridad en la implementación de medidas de protección del menor, salvaguardando el interés superior del niño.",
+    icon: "family_home",
+  },
+  {
+    title: "Derecho Constitucional",
+    description: "Tutela efectiva de los derechos fundamentales. Asesoramos y litigamos en procesos de amparo, hábeas corpus y cumplimiento, estructurando estrategias de defensa sólida frente a vulneraciones o amenazas provenientes de entidades públicas o poderes fácticos.",
+    icon: "account_balance",
+  },
+  {
+    title: "Derecho Civil",
+    description: "Protección patrimonial y contractual. Nuestra práctica se enfoca en la ejecución implacable de garantías (hipotecarias y mobiliarias), resolución de disputas sobre derechos de propiedad y diseño de estructuras legales para la salvaguarda integral del patrimonio de nuestros clientes.",
+    icon: "real_estate_agent",
+  },
+  {
+    title: "Derecho Administrativo",
+    description: "Defensa ante la potestad sancionadora del Estado. Gestionamos la representación en complejos procedimientos administrativos sancionadores (PAS) e interponemos recursos contencioso-administrativos orientados a la anulación de sanciones injustificadas emitidas por la administración pública.",
+    icon: "domain",
+  },
+  {
+    title: "Derecho Corporativo",
+    description: "Asesoría integral para la toma de decisiones empresariales. Diseñamos e implementamos esquemas robustos de prevención legal (compliance), estructuración societaria y fusiones, asegurando que las operaciones comerciales se desarrollen con el menor riesgo contingente posible.",
+    icon: "corporate_fare",
+  }
+];
+---
+
+<BaseLayout title="Áreas de Práctica | Arias & Zereceda" currentPage="/areas">
+  <!-- Main Header Section -->
+  <header class="pt-section-gap pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative overflow-hidden">
+    <!-- Abstract Geometric Anchor -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 border-[0.5px] border-outline-variant opacity-20 rotate-45 pointer-events-none"></div>
+    <div class="absolute top-12 right-12 w-48 h-48 border-[0.5px] border-outline-variant opacity-20 rotate-12 pointer-events-none"></div>
+    
+    <div class="max-w-3xl relative z-10">
+      <h4 class="font-subheading-caps text-subheading-caps text-primary mb-6">ESPECIALIDADES</h4>
+      <h1 class="font-display-lg text-display-lg text-on-background mb-8">
+        Excelencia en la práctica legal, centrada en el rigor y la precisión.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+        Nuestro estudio boutique se especializa en la resolución de conflictos complejos y la asesoría preventiva, brindando soluciones arquitectónicas a desafíos legales intrincados.
+      </p>
+    </div>
+  </header>
+
+  <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="signature-divider mb-section-gap">
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <!-- Practice Areas - Bento/List Hybrid -->
+  <main class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-section-gap">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-24">
+      {practiceAreas.map(area => (
+        <article class="group border-t border-outline-variant pt-8 relative transition-colors duration-500 hover:border-primary">
+          <div class="flex items-start gap-6">
+            <div class="w-12 h-12 flex-shrink-0 border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-colors duration-300">
+              <span class="material-symbols-outlined" data-icon={area.icon}>{area.icon}</span>
+            </div>
+            <div>
+              <h2 class="font-headline-md text-headline-md text-on-background mb-4">{area.title}</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                {area.description}
+              </p>
+              <a href="/contacto" class="inline-flex items-center text-primary font-label-sm text-label-sm hover:text-on-surface transition-colors duration-300">
+                LEER MÁS <span class="material-symbols-outlined ml-2 text-[16px]">arrow_right_alt</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

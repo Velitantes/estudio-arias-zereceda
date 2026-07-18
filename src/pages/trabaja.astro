@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Trabaja con Nosotros | Arias & Zereceda" currentPage="/trabaja">
+  <!-- Main Content Canvas -->
+  <main class="flex-grow flex flex-col relative overflow-hidden">
+    <!-- Background Layer -->
+    <div class="absolute inset-0 bg-geometric -z-10 pointer-events-none"></div>
+
+    <!-- Section 1: Hero & Statement -->
+    <section class="px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto w-full flex flex-col items-center justify-center min-h-[614px] text-center">
+      <div class="mb-8">
+        <span class="text-primary font-subheading-caps text-subheading-caps uppercase tracking-[0.2em]">Únete a la Firma</span>
+      </div>
+      
+      <h1 class="font-display-lg text-display-lg text-on-surface max-w-4xl mb-8">
+        Compromiso,<br/> Excelencia y Ética.
+      </h1>
+      
+      <div class="signature-divider-square w-full max-w-md">
+        <div class="square"></div>
+      </div>
+      
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
+        Buscamos profesionales apasionados por el derecho, que compartan nuestra visión de un ejercicio legal riguroso y profundamente ético. Si estás listo para desarrollarte en un entorno exigente y colaborativo, queremos conocerte.
+      </p>
+      
+      <p class="font-subheading-caps text-subheading-caps text-on-surface-variant uppercase tracking-[0.1em]">
+        Enviar CV a el email
+      </p>
+      
+      <p class="mt-2 font-body-lg text-body-lg font-medium text-primary">
+        contacto@ariaszereceda.pe
+      </p>
+    </section>
+
+    <!-- Section 2: Visual Anchor (Image) -->
+    <section class="px-margin-mobile md:px-margin-desktop pb-section-gap max-w-container-max mx-auto w-full">
+      <div class="relative w-full aspect-[21/9] bg-surface-variant border border-outline-variant/20 overflow-hidden flex items-center justify-center group">
+        <!-- We use an abstract office image or keep the googleusercontent one if not available -->
+        <!-- Since we don't have this specific office image in our assets, we will use a placeholder or keep it abstract. I'll use the original source for now as per instructions. -->
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDagjD0unx19Gi0o1a4h_r-zmXJKQJRx9gQ5uqAVCUe8IEeoedXX5Hfhp-qKHUZeooSnmFI727NTm22C8mY5buBzfENUenK3XQ37Z9ftKts8otuMsE-0yZJ8ks9Y9Uk2bQuauhT5cvftAtSU77YlwgoVeVllzVaG5OwFb299heBbU6Mw8_mqWFL6Go4Vyroiz2OCKHsXwfLE66N77X-K103qf2Qu4YFxRtDJWOFQEGU4nSgbXwdeq3tLh0XK80Si_V8-bmGcERTXTr5" alt="Oficinas de Arias & Zereceda" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-1000" />
+        
+        <!-- Overlay to maintain text contrast and mood -->
+        <div class="absolute inset-0 bg-on-surface/5 mix-blend-multiply pointer-events-none"></div>
+        
+        <!-- Abstract framing element -->
+        <div class="absolute top-8 left-8 w-16 h-16 border-t border-l border-primary/40"></div>
+        <div class="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-primary/40"></div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

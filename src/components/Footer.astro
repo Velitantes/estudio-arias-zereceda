@@ -1,0 +1,59 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-on-background dark:bg-on-background text-surface-container dark:text-surface-container full-width border-t border-outline-variant opacity-100 mt-auto relative overflow-hidden z-20">
+  <!-- Decorative Isotype Watermark -->
+  <div class="absolute -right-32 -bottom-32 opacity-10 pointer-events-none">
+    <img src="/images/logo-isotipo-dark.png" alt="" class="w-[600px] h-[600px] object-contain" />
+  </div>
+
+  <div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto w-full gap-12 relative z-10">
+    <div class="flex flex-col gap-6 max-w-sm">
+      <div class="text-headline-md font-headline-md text-surface flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+        Arias &amp; Zereceda
+      </div>
+      <p class="font-body-md text-body-md text-surface-variant opacity-80 leading-relaxed">
+        Firma boutique dedicada a proporcionar asesoría legal especializada con los más altos estándares de excelencia y rigor intelectual.
+      </p>
+      <div class="flex gap-4 mt-2">
+        <a href="#" class="w-10 h-10 border border-surface-variant/30 flex items-center justify-center text-surface-variant hover:bg-surface hover:text-on-background transition-colors duration-300" aria-label="LinkedIn">
+          <span class="material-symbols-outlined text-sm">work</span>
+        </a>
+        <a href="#" class="w-10 h-10 border border-surface-variant/30 flex items-center justify-center text-surface-variant hover:bg-surface hover:text-on-background transition-colors duration-300" aria-label="Facebook">
+          <span class="material-symbols-outlined text-sm">public</span>
+        </a>
+        <a href="#" class="w-10 h-10 border border-surface-variant/30 flex items-center justify-center text-surface-variant hover:bg-surface hover:text-on-background transition-colors duration-300" aria-label="Instagram">
+          <span class="material-symbols-outlined text-sm">share</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-12 md:gap-24">
+      <div class="flex flex-col gap-4">
+        <span class="font-subheading-caps text-label-sm text-surface uppercase tracking-widest opacity-50 mb-2">Navegación</span>
+        <nav class="flex flex-col gap-3">
+          <a href="/" class="text-surface-variant font-body-md text-body-md hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100">Inicio</a>
+          <a href="/equipo" class="text-surface-variant font-body-md text-body-md hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100">Equipo</a>
+          <a href="/areas" class="text-surface-variant font-body-md text-body-md hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100">Áreas</a>
+          <a href="/contacto" class="text-surface-variant font-body-md text-body-md hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100">Contáctenos</a>
+          <a href="/trabaja" class="text-surface-variant font-body-md text-body-md hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100">Trabaja con nosotros</a>
+        </nav>
+      </div>
+      <div class="flex flex-col gap-4">
+        <span class="font-subheading-caps text-label-sm text-surface uppercase tracking-widest opacity-50 mb-2">Legal</span>
+        <nav class="flex flex-col gap-3">
+          <a href="#" class="text-surface-variant font-body-md text-body-md hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100">Privacidad</a>
+          <a href="#" class="text-surface-variant font-body-md text-body-md hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100">Términos</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-surface-variant/20 px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto w-full relative z-10 flex flex-col md:flex-row justify-between items-center">
+    <p class="font-label-sm text-label-sm text-surface-variant/60 text-center md:text-left">
+      © {currentYear} Arias &amp; Zereceda Abogados Asociados. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>

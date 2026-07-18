@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  href: string;
+}
+
+const { title, description, icon, href } = Astro.props;
+---
+
+<div class="group border-t border-outline-variant/30 pt-6 hover:border-primary transition-colors duration-500">
+  <span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon={icon}>{icon}</span>
+  <h3 class="font-headline-md text-headline-md text-on-background mb-4">{title}</h3>
+  <p class="font-body-md text-body-md text-on-surface-variant mb-6">{description}</p>
+  <a href={href} class="font-label-sm text-label-sm text-primary uppercase tracking-widest hover:text-on-background transition-colors flex items-center gap-2 group-hover:gap-4 duration-300">
+    Ver más <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+  </a>
+</div>

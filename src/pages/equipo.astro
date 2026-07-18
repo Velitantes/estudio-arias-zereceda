@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Equipo | Arias & Zereceda" currentPage="/equipo">
+  <main class="w-full">
+    <!-- Hero Section -->
+    <section class="pt-section-gap pb-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+      <p class="font-subheading-caps text-subheading-caps text-primary mb-6 uppercase tracking-widest">Arias &amp; Zereceda</p>
+      <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-8">Nuestro Equipo</h1>
+      <div class="signature-divider-square max-w-2xl mx-auto mt-12 mb-section-gap">
+        <div class="square"></div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-section-gap">
+      
+      <!-- Partner 1: Dra. Luz Angela Arias Vásquez -->
+      <div class="flex flex-col lg:flex-row items-center gap-gutter lg:gap-16 mb-section-gap">
+        <div class="w-full lg:w-5/12 relative group">
+          <div class="absolute inset-0 bg-primary-container opacity-5 translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500"></div>
+          <img src="/images/dra-arias.jpg" alt="Dra. Luz Angela Arias Vásquez" class="w-full h-auto object-cover border border-outline-variant/20 relative z-10 grayscale hover:grayscale-0 transition-all duration-700" />
+        </div>
+        
+        <div class="w-full lg:w-7/12 flex flex-col justify-center">
+          <div class="mb-6">
+            <span class="font-subheading-caps text-subheading-caps text-primary uppercase tracking-widest block mb-2">Socia Fundadora</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Dra. Luz Angela Arias Vásquez</h2>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-label-sm font-label-sm px-3 py-1 border border-outline-variant/30 text-on-surface-variant uppercase tracking-wider">Penal</span>
+              <span class="text-label-sm font-label-sm px-3 py-1 border border-outline-variant/30 text-on-surface-variant uppercase tracking-wider">Familia</span>
+              <span class="text-label-sm font-label-sm px-3 py-1 border border-outline-variant/30 text-on-surface-variant uppercase tracking-wider">Constitucional</span>
+              <span class="text-label-sm font-label-sm px-3 py-1 border border-outline-variant/30 text-on-surface-variant uppercase tracking-wider">Corporativo</span>
+            </div>
+          </div>
+          <div class="prose max-w-none text-on-surface-variant font-body-md text-body-md leading-relaxed space-y-4">
+            <p>
+              Especialista con destacada trayectoria en litigio complejo y consultoría estratégica. Su enfoque se centra en una defensa integral y meticulosa, abordando cada caso con rigurosidad analítica y un profundo entendimiento del marco legal vigente.
+            </p>
+            <p>
+              Lidera la práctica de Derecho Penal y de Familia de la firma, combinando asertividad en tribunales con una sensibilidad única para la resolución de conflictos, asegurando la protección irrestricta de los intereses de nuestros clientes corporativos y particulares.
+            </p>
+          </div>
+          <div class="mt-8">
+            <a href="/contacto" class="btn-outline flex items-center gap-2 group w-fit hover:text-surface">
+              <span>Contactar</span>
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full h-px bg-outline-variant/20 mb-section-gap"></div>
+
+      <!-- Partner 2: Dr. Rodrigo Juvenal Zereceda García -->
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-gutter lg:gap-16">
+        <div class="w-full lg:w-5/12 relative group">
+          <div class="absolute inset-0 bg-secondary-container opacity-20 -translate-x-4 translate-y-4 group-hover:-translate-x-6 group-hover:translate-y-6 transition-transform duration-500"></div>
+          <img src="/images/dr-zereceda.jpg" alt="Dr. Rodrigo Juvenal Zereceda García" class="w-full h-auto object-cover border border-outline-variant/20 relative z-10 grayscale hover:grayscale-0 transition-all duration-700" />
+        </div>
+        
+        <div class="w-full lg:w-7/12 flex flex-col justify-center text-left lg:text-right">
+          <div class="mb-6">
+            <span class="font-subheading-caps text-subheading-caps text-primary uppercase tracking-widest block mb-2">Socio Fundador</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Dr. Rodrigo Juvenal Zereceda García</h2>
+            <div class="flex flex-wrap gap-2 mb-6 lg:justify-end">
+              <span class="text-label-sm font-label-sm px-3 py-1 border border-outline-variant/30 text-on-surface-variant uppercase tracking-wider">Penal</span>
+              <span class="text-label-sm font-label-sm px-3 py-1 border border-outline-variant/30 text-on-surface-variant uppercase tracking-wider">Civil</span>
+              <span class="text-label-sm font-label-sm px-3 py-1 border border-outline-variant/30 text-on-surface-variant uppercase tracking-wider">Administrativo</span>
+              <span class="text-label-sm font-label-sm px-3 py-1 border border-outline-variant/30 text-on-surface-variant uppercase tracking-wider">Corporativo</span>
+            </div>
+          </div>
+          <div class="prose max-w-none text-on-surface-variant font-body-md text-body-md leading-relaxed space-y-4 ml-auto">
+            <p>
+              Reconocido por su capacidad para estructurar soluciones legales innovadoras ante escenarios de alta complejidad. Su práctica se distingue por un enfoque altamente técnico y estratégico, diseñado para mitigar riesgos y maximizar oportunidades en el ámbito corporativo y contencioso.
+            </p>
+            <p>
+              Dirige las áreas de Derecho Civil y Administrativo, aportando una visión pragmática orientada a resultados. Su asesoría es fundamental para la toma de decisiones críticas de nuestras empresas clientes.
+            </p>
+          </div>
+          <div class="mt-8 flex lg:justify-end">
+            <a href="/contacto" class="btn-outline flex items-center gap-2 group w-fit hover:text-surface">
+              <span>Contactar</span>
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manifesto/Closing Callout -->
+    <section class="bg-surface-container-low py-section-gap px-margin-mobile md:px-margin-desktop border-t border-b border-outline-variant/10">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="material-symbols-outlined text-4xl text-primary mb-6 opacity-80">balance</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-6">Excelencia Analítica y Compromiso Inquebrantable</h3>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+          Nuestro equipo combina rigor académico con experiencia práctica sustancial para ofrecer una representación legal de primer nivel. Entendemos que cada caso requiere una arquitectura jurídica a medida.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
