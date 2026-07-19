@@ -77,14 +77,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="flex flex-col gap-4 font-body-md text-on-surface-variant">
               <div class="flex items-center gap-4">
                 <span class="material-symbols-outlined text-primary">call</span>
-                <a href="tel:+5112345678" class="hover:text-primary transition-colors">+51 (1) 234-5678</a>
+                <div class="flex flex-col gap-1">
+                  <a href="tel:+51925295238" class="hover:text-primary transition-colors">+51 925 295 238</a>
+                  <a href="tel:+51901999739" class="hover:text-primary transition-colors">+51 901 999 739</a>
+                </div>
               </div>
               <div class="flex items-center gap-4">
                 <span class="material-symbols-outlined text-primary">mail</span>
-                <a href="mailto:contacto@ariaszereceda.pe" class="hover:text-primary transition-colors">contacto@ariaszereceda.pe</a>
+                <a href="mailto:arias.zereceda.abogados@gmail.com" class="hover:text-primary transition-colors break-all">arias.zereceda.abogados@gmail.com</a>
               </div>
             </div>
-            <a href="https://wa.me/5112345678" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-primary text-primary font-subheading-caps text-subheading-caps hover:bg-primary hover:text-surface transition-colors rounded-none mt-2 self-start">
+            <a href="https://wa.me/51925295238" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-primary text-primary font-subheading-caps text-subheading-caps hover:bg-primary hover:text-surface transition-colors rounded-none mt-2 self-start">
               <span class="material-symbols-outlined text-lg">chat</span>
               Atención vía WhatsApp
             </a>
@@ -98,29 +101,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           
           <!-- Locations Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 gap-8">
             <!-- Sede Surco -->
             <div class="flex flex-col gap-3 group">
               <h4 class="font-headline-md text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">Santiago de Surco</h4>
               <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Av. El Derby 254, Oficina 1204<br/>
-                Edificio Lima Central Tower<br/>
+                Calle El Boulevard 161, interior 601<br/>
                 Lima, Perú
               </p>
-              <a href="#" class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2 hover:opacity-80 transition-opacity">
-                Ver en Mapa <span class="material-symbols-outlined text-sm">open_in_new</span>
-              </a>
-            </div>
-            
-            <!-- Sede San Borja -->
-            <div class="flex flex-col gap-3 group">
-              <h4 class="font-headline-md text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">San Borja</h4>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Calle Las Camelias 435<br/>
-                Piso 3<br/>
-                Lima, Perú
-              </p>
-              <a href="#" class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2 hover:opacity-80 transition-opacity">
+              <a href="https://www.google.com/maps/search/?api=1&query=Calle+El+Boulevard+161,+Santiago+de+Surco,+Lima" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2 hover:opacity-80 transition-opacity">
                 Ver en Mapa <span class="material-symbols-outlined text-sm">open_in_new</span>
               </a>
             </div>
@@ -130,14 +119,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="mt-4 flex flex-col gap-4">
             <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Síguenos en:</span>
             <div class="flex gap-4">
-              <a href="#" class="w-10 h-10 border border-outline-variant opacity-50 flex items-center justify-center text-on-surface hover:border-primary hover:text-primary hover:opacity-100 transition-all rounded-none">
-                <span class="material-symbols-outlined text-lg">public</span>
-              </a>
-              <a href="#" class="w-10 h-10 border border-outline-variant opacity-50 flex items-center justify-center text-on-surface hover:border-primary hover:text-primary hover:opacity-100 transition-all rounded-none">
-                <span class="material-symbols-outlined text-lg">work</span>
-              </a>
-              <a href="#" class="w-10 h-10 border border-outline-variant opacity-50 flex items-center justify-center text-on-surface hover:border-primary hover:text-primary hover:opacity-100 transition-all rounded-none">
-                <span class="material-symbols-outlined text-lg">share</span>
+              <a href="https://www.tiktok.com/@arias_zereceda_abogados" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-outline-variant opacity-50 flex items-center justify-center text-on-surface hover:border-primary hover:text-primary hover:opacity-100 transition-all rounded-none" aria-label="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
               </a>
             </div>
           </div>
@@ -158,7 +141,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (form) {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Gracias por su mensaje. Nos pondremos en contacto con usted a la brevedad posible.');
+        const formData = new FormData(form);
+        const nombre = formData.get('nombre');
+        const email = formData.get('email');
+        const telefono = formData.get('telefono');
+        const area = formData.get('area');
+        const mensaje = formData.get('mensaje');
+
+        const text = `Hola, mi nombre es ${nombre}.\nMi correo es: ${email}\nMi teléfono es: ${telefono}\nÁrea de interés: ${area}\n\nMensaje: ${mensaje}`;
+        const whatsappUrl = `https://wa.me/51925295238?text=${encodeURIComponent(text)}`;
+        
+        window.open(whatsappUrl, '_blank');
         form.reset();
       });
     }
