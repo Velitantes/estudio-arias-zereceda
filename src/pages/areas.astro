@@ -73,13 +73,18 @@ const practiceAreas = [
               <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
                 {area.description}
               </p>
-              <a href="/contacto" class="inline-flex items-center text-primary font-label-sm text-label-sm hover:text-on-surface transition-colors duration-300">
-                LEER MÁS <span class="material-symbols-outlined ml-2 text-[16px]">arrow_right_alt</span>
-              </a>
             </div>
           </div>
         </article>
       ))}
+    </div>
+
+    <!-- Botón de Contacto Global -->
+    <div class="mt-24 flex justify-center w-full">
+      <a href="/contacto" class="px-8 py-4 bg-on-surface text-surface font-subheading-caps text-subheading-caps hover:bg-primary transition-colors duration-300 rounded-none flex items-center gap-3 group">
+        Contáctenos
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </a>
     </div>
   </main>
 </BaseLayout>
