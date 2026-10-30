@@ -4,16 +4,30 @@ interface Props {
   description: string;
   icon: string;
   href: string;
+  featured?: boolean;
+  delay?: number;
 }
 
-const { title, description, icon, href } = Astro.props;
+const { title, description, icon, href, featured = false, delay = 0 } = Astro.props;
 ---
 
-<div class="group border-t border-outline-variant/30 pt-6 hover:border-primary transition-colors duration-500">
-  <span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon={icon}>{icon}</span>
-  <h3 class="font-headline-md text-headline-md text-on-background mb-4">{title}</h3>
-  <p class="font-body-md text-body-md text-on-surface-variant mb-6">{description}</p>
-  <a href={href} class="font-label-sm text-label-sm text-primary uppercase tracking-widest hover:text-on-background transition-colors flex items-center gap-2 group-hover:gap-4 duration-300">
-    Ver más <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-  </a>
-</div>
+<article
+  data-reveal={delay}
+  class:list={[
+    "group relative flex flex-col border border-outline-variant/40 bg-surface-container-lowest p-8 overflow-hidden hover:border-primary/60 hover:shadow-lg transition-[border-color,box-shadow] duration-500",
+    featured ? "lg:col-span-2 lg:p-12" : "",
+  ]}
+>
+  <!-- Patrón geométrico sutil al pasar el cursor -->
+  <div class="bg-geometric absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative flex flex-col h-full">
+    <span class:list={["material-symbols-outlined text-primary mb-6", featured ? "text-5xl" : "text-4xl"]} data-icon={icon} aria-hidden="true">{icon}</span>
+    <h3 class:list={["font-headline-md text-headline-md text-on-background mb-4", featured ? "lg:text-[40px]" : ""]}>{title}</h3>
+    <p class:list={["font-body-md text-body-md text-on-surface-variant mb-8", featured ? "lg:max-w-xl lg:text-body-lg" : ""]}>{description}</p>
+    <a href={href} class="mt-auto font-label-sm text-label-sm text-primary uppercase tracking-widest hover:text-on-background transition-colors flex items-center gap-2 group-hover:gap-4 duration-300 after:absolute after:inset-0 after:content-['']">
+      Ver más
+      <span class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:-rotate-45 motion-reduce:transition-none" data-icon="arrow_forward" aria-hidden="true">arrow_forward</span>
+    </a>
+  </div>
+</article>

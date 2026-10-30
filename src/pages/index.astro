@@ -43,6 +43,9 @@ const practiceAreas = [
     href: "/areas"
   }
 ];
+
+// Índices de las áreas destacadas (zigzag para que el grid de 3 columnas cierre completo)
+const featuredAreas = [0, 3, 4];
 ---
 
 <BaseLayout title="Arias & Zereceda Abogados Asociados" currentPage="/">
@@ -55,15 +58,15 @@ const practiceAreas = [
     </div>
     
     <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-8">
-      <span class="font-subheading-caps text-subheading-caps text-primary tracking-[0.3em] uppercase">Excelencia & Ética</span>
-      <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg md:text-[80px] text-on-background leading-tight">
+      <span data-reveal="0" class="font-subheading-caps text-subheading-caps text-primary tracking-[0.3em] uppercase">Excelencia & Ética</span>
+      <h1 data-reveal="120" class="font-display-lg text-headline-lg-mobile md:text-display-lg md:text-[80px] text-on-background leading-tight">
         Asesoría legal integral y estratégica.
       </h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
+      <p data-reveal="240" class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
         Penal · Familia · Constitucional · Civil · Administrativo · Corporativo
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-6 mt-8 w-full sm:w-auto justify-center">
+      <div data-reveal="360" class="flex flex-col sm:flex-row gap-6 mt-8 w-full sm:w-auto justify-center">
         <a href="/contacto" class="btn-primary w-full sm:w-auto text-center">Agenda una consulta</a>
         <a href="#nosotros" class="btn-outline w-full sm:w-auto text-center">Conócenos</a>
       </div>
@@ -79,13 +82,13 @@ const practiceAreas = [
 
   <!-- About Us Section -->
   <section id="nosotros" class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
-    <div class="md:col-span-5">
+    <div data-reveal="0" class="md:col-span-5">
       <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">
         Estudio jurídico de referencia en Perú.
       </h2>
     </div>
     <div class="md:col-span-1 md:col-start-7 hidden md:block border-l border-outline-variant h-full opacity-30"></div>
-    <div class="md:col-span-5 md:col-start-8 flex flex-col gap-6">
+    <div data-reveal="150" class="md:col-span-5 md:col-start-8 flex flex-col gap-6">
       <p class="font-body-lg text-body-lg text-on-surface-variant">
         Nuestra misión es brindar un servicio legal de excelencia, fundamentado en una ética inquebrantable y una transparencia absoluta. Entendemos que cada caso requiere un enfoque a medida, combinando rigor académico con estrategias prácticas para resolver los conflictos más complejos.
       </p>
@@ -98,14 +101,14 @@ const practiceAreas = [
   <!-- Team Section -->
   <section id="equipo" class="bg-surface-container py-section-gap px-margin-mobile md:px-margin-desktop">
     <div class="max-w-container-max mx-auto">
-      <div class="text-center mb-16">
+      <div data-reveal="0" class="text-center mb-16">
         <span class="font-subheading-caps text-subheading-caps text-primary tracking-[0.2em] uppercase block mb-4">Nuestro Liderazgo</span>
         <h2 class="font-headline-md text-headline-md text-on-background">Socios Fundadores</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
         <!-- Partner 1 -->
-        <article class="group border border-outline-variant/30 p-8 bg-surface-container-lowest hover:border-primary/50 transition-colors duration-500 flex flex-col">
+        <article data-reveal="0" class="group border border-outline-variant/30 p-8 bg-surface-container-lowest hover:border-primary/50 transition-colors duration-500 flex flex-col">
           <div class="w-full aspect-[4/3] bg-surface-variant mb-8 overflow-hidden relative">
             <Image src={draArias} alt="Dra. Luz Angela Arias Vásquez" widths={[480, 720, 960]} sizes="(min-width: 768px) 560px, 100vw" format="webp" quality={78} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" />
           </div>
@@ -119,7 +122,7 @@ const practiceAreas = [
         </article>
 
         <!-- Partner 2 -->
-        <article class="group border border-outline-variant/30 p-8 bg-surface-container-lowest hover:border-primary/50 transition-colors duration-500 flex flex-col">
+        <article data-reveal="150" class="group border border-outline-variant/30 p-8 bg-surface-container-lowest hover:border-primary/50 transition-colors duration-500 flex flex-col">
           <div class="w-full aspect-[4/3] bg-surface-variant mb-8 overflow-hidden relative">
             <Image src={drZereceda} alt="Dr. Rodrigo Juvenal Zereceda García" widths={[480, 720, 960]} sizes="(min-width: 768px) 560px, 100vw" format="webp" quality={78} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" />
           </div>
@@ -137,7 +140,7 @@ const practiceAreas = [
 
   <!-- Practice Areas -->
   <section id="areas" class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+    <div data-reveal="0" class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
       <div class="max-w-2xl">
         <span class="font-subheading-caps text-subheading-caps text-primary tracking-[0.2em] uppercase block mb-4">Especialidades</span>
         <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">
@@ -146,9 +149,10 @@ const practiceAreas = [
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8">
-      {practiceAreas.map(area => (
-        <PracticeAreaCard {...area} />
+    <!-- Bento grid: las tarjetas destacadas ocupan dos columnas en pantallas grandes -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {practiceAreas.map((area, i) => (
+        <PracticeAreaCard {...area} featured={featuredAreas.includes(i)} delay={(i % 3) * 100} />
       ))}
     </div>
   </section>
