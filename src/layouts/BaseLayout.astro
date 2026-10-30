@@ -18,6 +18,7 @@ const { title, description = "Arias & Zereceda - Estudio jurídico de referencia
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script is:inline>document.documentElement.classList.add('js');</script>
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="google-site-verification" content="Zr-Ovth2H5lQkB9uHdCzphCBa4zH_YOwH6CSo5FkHpU" />
@@ -36,6 +37,38 @@ const { title, description = "Arias & Zereceda - Estudio jurídico de referencia
 
   <WhatsappButton />
   <Footer />
+
+  <script>
+    // Aparición escalonada de elementos con [data-reveal="<retraso en ms>"]
+    const revealItems = document.querySelectorAll<HTMLElement>('[data-reveal]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealItems.forEach((el) => el.classList.add('is-visible'));
+    } else {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              el.classList.add('is-visible');
+              revealObserver.unobserve(el);
+              // Al terminar la entrada se libera el elemento para que sus transiciones hover vuelvan a funcionar
+              window.setTimeout(() => {
+                el.removeAttribute('data-reveal');
+                el.classList.remove('is-visible');
+              }, Number(el.dataset.reveal || 0) + 900);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      revealItems.forEach((el) => {
+        el.style.setProperty('--reveal-delay', `${el.dataset.reveal || 0}ms`);
+        revealObserver.observe(el);
+      });
+    }
+  </script>
 
   <script>
     // Smooth scroll for anchor links
