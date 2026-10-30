@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import draArias from '../assets/images/dra-arias.jpg';
+import drZereceda from '../assets/images/dr-zereceda.jpg';
 ---
 
 <BaseLayout title="Equipo | Arias & Zereceda" currentPage="/equipo">
@@ -20,7 +23,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="flex flex-col lg:flex-row items-center gap-gutter lg:gap-16 mb-section-gap">
         <div class="w-full lg:w-5/12 relative group">
           <div class="absolute inset-0 bg-primary-container opacity-5 translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500"></div>
-          <img src="/images/dra-arias.jpg" alt="Dra. Luz Angela Arias Vásquez" class="w-full h-auto object-cover border border-outline-variant/20 relative z-10 grayscale hover:grayscale-0 transition-all duration-700" />
+          <Image src={draArias} alt="Dra. Luz Angela Arias Vásquez" widths={[480, 720, 960]} sizes="(min-width: 1024px) 500px, 100vw" format="webp" quality={78} class="w-full h-auto object-cover border border-outline-variant/20 relative z-10 grayscale hover:grayscale-0 transition-all duration-700" />
         </div>
         
         <div class="w-full lg:w-7/12 flex flex-col justify-center">
@@ -57,7 +60,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="flex flex-col lg:flex-row-reverse items-center gap-gutter lg:gap-16">
         <div class="w-full lg:w-5/12 relative group">
           <div class="absolute inset-0 bg-secondary-container opacity-20 -translate-x-4 translate-y-4 group-hover:-translate-x-6 group-hover:translate-y-6 transition-transform duration-500"></div>
-          <img src="/images/dr-zereceda.jpg" alt="Dr. Rodrigo Juvenal Zereceda García" class="w-full h-auto object-cover border border-outline-variant/20 relative z-10 grayscale hover:grayscale-0 transition-all duration-700" />
+          <Image src={drZereceda} alt="Dr. Rodrigo Juvenal Zereceda García" widths={[480, 720, 960]} sizes="(min-width: 1024px) 500px, 100vw" format="webp" quality={78} class="w-full h-auto object-cover border border-outline-variant/20 relative z-10 grayscale hover:grayscale-0 transition-all duration-700" />
         </div>
         
         <div class="w-full lg:w-7/12 flex flex-col justify-center text-left lg:text-right">

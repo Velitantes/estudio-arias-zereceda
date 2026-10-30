@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PracticeAreaCard from '../components/PracticeAreaCard.astro';
+import { Image } from 'astro:assets';
+import draArias from '../assets/images/dra-arias.jpg';
+import drZereceda from '../assets/images/dr-zereceda.jpg';
 
 const practiceAreas = [
   {
@@ -104,7 +107,7 @@ const practiceAreas = [
         <!-- Partner 1 -->
         <article class="group border border-outline-variant/30 p-8 bg-surface-container-lowest hover:border-primary/50 transition-colors duration-500 flex flex-col">
           <div class="w-full aspect-[4/3] bg-surface-variant mb-8 overflow-hidden relative">
-            <img src="/images/dra-arias.jpg" alt="Dra. Luz Angela Arias Vásquez" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" />
+            <Image src={draArias} alt="Dra. Luz Angela Arias Vásquez" widths={[480, 720, 960]} sizes="(min-width: 768px) 560px, 100vw" format="webp" quality={78} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" />
           </div>
           <h3 class="font-headline-md text-headline-md text-on-background mb-2">Dra. Luz Angela Arias Vásquez</h3>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -118,7 +121,7 @@ const practiceAreas = [
         <!-- Partner 2 -->
         <article class="group border border-outline-variant/30 p-8 bg-surface-container-lowest hover:border-primary/50 transition-colors duration-500 flex flex-col">
           <div class="w-full aspect-[4/3] bg-surface-variant mb-8 overflow-hidden relative">
-            <img src="/images/dr-zereceda.jpg" alt="Dr. Rodrigo Juvenal Zereceda García" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" />
+            <Image src={drZereceda} alt="Dr. Rodrigo Juvenal Zereceda García" widths={[480, 720, 960]} sizes="(min-width: 768px) 560px, 100vw" format="webp" quality={78} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" />
           </div>
           <h3 class="font-headline-md text-headline-md text-on-background mb-2">Dr. Rodrigo Juvenal Zereceda García</h3>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
