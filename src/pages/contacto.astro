@@ -23,20 +23,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         
         <!-- Left Column: Form -->
         <div class="lg:col-span-6 flex flex-col gap-8 pr-0 lg:pr-8">
-          <form class="flex flex-col gap-8" action="#" method="POST" id="contact-form">
+          <form class="flex flex-col gap-8" action="/api/contacto" method="POST" id="contact-form" novalidate>
+            <!-- Anti-spam: campo oculto que solo llenan los bots y marca de tiempo -->
+            <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+              <label for="website">No completar este campo</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <input type="hidden" name="t" id="form-t" value="" />
             <div class="flex flex-col gap-2 relative">
               <label for="nombre" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Nombre Completo</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" autocomplete="name" maxlength="120" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div class="flex flex-col gap-2 relative">
                 <label for="email" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Correo Electrónico</label>
-                <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
+                <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" autocomplete="email" maxlength="160" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
               </div>
               <div class="flex flex-col gap-2 relative">
                 <label for="telefono" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="+51 ..." class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
+                <input type="tel" id="telefono" name="telefono" placeholder="+51 ..." autocomplete="tel" inputmode="tel" maxlength="20" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 outline-none" required />
               </div>
             </div>
             
@@ -58,10 +64,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             
             <div class="flex flex-col gap-2 relative">
               <label for="mensaje" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" placeholder="Describa brevemente su consulta..." rows="4" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 resize-none outline-none" required></textarea>
+              <textarea id="mensaje" name="mensaje" placeholder="Describa brevemente su consulta..." rows="4" minlength="10" maxlength="3000" class="w-full bg-transparent border-0 border-b border-outline-variant opacity-80 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-on-surface transition-colors placeholder:text-outline/50 resize-none outline-none" required></textarea>
             </div>
             
-            <button type="submit" class="self-start px-8 py-4 bg-on-surface text-surface font-subheading-caps text-subheading-caps hover:bg-primary transition-colors duration-300 rounded-none flex items-center gap-3 group mt-4">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="consentimiento" name="consentimiento" class="mt-1 h-4 w-4 accent-primary shrink-0" required />
+              <label for="consentimiento" class="font-body-md text-label-sm text-on-surface-variant normal-case tracking-normal font-normal leading-relaxed">
+                He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary underline underline-offset-2">Política de Privacidad</a> y autorizo el tratamiento de mis datos personales para atender mi consulta, conforme a la Ley N° 29733.
+              </label>
+            </div>
+
+            <p id="form-status" role="status" aria-live="polite" class="hidden font-body-md text-body-md border-l-4 px-4 py-3"></p>
+
+            <button type="submit" id="form-submit" class="self-start px-8 py-4 bg-on-surface text-surface font-subheading-caps text-subheading-caps hover:bg-primary transition-colors duration-300 rounded-none flex items-center gap-3 group mt-4 disabled:opacity-60 disabled:cursor-not-allowed">
               Enviar Mensaje
               <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </button>
@@ -137,22 +152,50 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </style>
 
   <script>
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const nombre = formData.get('nombre');
-        const email = formData.get('email');
-        const telefono = formData.get('telefono');
-        const area = formData.get('area');
-        const mensaje = formData.get('mensaje');
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const status = document.getElementById('form-status') as HTMLElement | null;
+    const submitBtn = document.getElementById('form-submit') as HTMLButtonElement | null;
+    const stamp = document.getElementById('form-t') as HTMLInputElement | null;
 
-        const text = `Hola, mi nombre es ${nombre}.\nMi correo es: ${email}\nMi teléfono es: ${telefono}\nÁrea de interés: ${area}\n\nMensaje: ${mensaje}`;
-        const whatsappUrl = `https://wa.me/51925295238?text=${encodeURIComponent(text)}`;
-        
-        window.open(whatsappUrl, '_blank');
-        form.reset();
+    if (form && status && submitBtn) {
+      if (stamp) stamp.value = String(Date.now());
+
+      const showStatus = (message: string, ok: boolean) => {
+        status.textContent = message;
+        status.className = ok
+          ? 'font-body-md text-body-md border-l-4 px-4 py-3 border-tertiary bg-tertiary-fixed/40 text-on-surface'
+          : 'font-body-md text-body-md border-l-4 px-4 py-3 border-error bg-error-container/50 text-on-error-container';
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        submitBtn.disabled = true;
+        const originalLabel = submitBtn.firstChild?.textContent ?? '';
+        if (submitBtn.firstChild) submitBtn.firstChild.textContent = 'Enviando... ';
+
+        try {
+          const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+          const result = await res.json().catch(() => ({}));
+
+          if (res.ok && result.ok) {
+            showStatus('Hemos recibido su consulta bajo estricto secreto profesional. Nos comunicaremos con usted a la brevedad.', true);
+            form.reset();
+            if (stamp) stamp.value = String(Date.now());
+          } else {
+            showStatus(result.error || 'No pudimos enviar su consulta. Intente nuevamente o escríbanos por WhatsApp.', false);
+          }
+        } catch {
+          showStatus('No pudimos enviar su consulta. Revise su conexión o escríbanos por WhatsApp.', false);
+        } finally {
+          submitBtn.disabled = false;
+          if (submitBtn.firstChild) submitBtn.firstChild.textContent = originalLabel;
+        }
       });
     }
   </script>
