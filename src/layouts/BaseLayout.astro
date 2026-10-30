@@ -47,7 +47,7 @@ const { title, description = "Arias & Zereceda - Estudio jurídico de referencia
           if (target) {
             e.preventDefault();
             target.scrollIntoView({
-              behavior: 'smooth'
+              behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
             });
           }
         }

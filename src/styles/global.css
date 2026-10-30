@@ -104,6 +104,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 7rem; /* evita que la barra fija tape los anclajes */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
