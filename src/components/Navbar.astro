@@ -14,7 +14,10 @@ const links = [
 ---
 
 <nav
-  class="bg-surface dark:bg-surface text-primary dark:text-primary-fixed-dim w-full top-0 sticky border-b border-outline-variant opacity-95 z-50 transition-colors"
+  id="main-navbar"
+  data-scrolled="false"
+  data-hidden="false"
+  class="bg-surface text-primary w-full top-0 sticky border-b border-outline-variant z-50 transition-[transform,background-color,box-shadow,backdrop-filter] duration-300 data-[scrolled=true]:bg-surface/85 data-[scrolled=true]:backdrop-blur-md data-[scrolled=true]:shadow-sm data-[hidden=true]:-translate-y-full motion-reduce:transition-none"
 >
   <div
     class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto w-full"
@@ -66,6 +69,10 @@ const links = [
     <!-- Mobile Menu Toggle -->
     <button
       id="mobile-menu-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
       class="md:hidden text-on-surface p-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
     >
       <span class="material-symbols-outlined text-2xl">menu</span>
@@ -112,16 +119,61 @@ const links = [
 </nav>
 
 <script>
+  const navbar = document.getElementById("main-navbar");
   const toggleBtn = document.getElementById("mobile-menu-toggle");
   const menu = document.getElementById("mobile-menu");
 
-  if (toggleBtn && menu) {
-    toggleBtn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-      const icon = toggleBtn.querySelector("span");
-      if (icon) {
-        icon.textContent = menu.classList.contains("hidden") ? "menu" : "close";
+  const setMenu = (open: boolean) => {
+    if (!toggleBtn || !menu) return;
+    menu.classList.toggle("hidden", !open);
+    toggleBtn.setAttribute("aria-expanded", String(open));
+    toggleBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    const icon = toggleBtn.querySelector("span");
+    if (icon) icon.textContent = open ? "close" : "menu";
+    // Con el menú abierto la barra debe permanecer visible
+    if (open && navbar) navbar.dataset.hidden = "false";
+  };
+
+  toggleBtn?.addEventListener("click", () => {
+    setMenu(menu?.classList.contains("hidden") ?? false);
+  });
+
+  // Barra inteligente: vidrio al hacer scroll, se oculta al bajar y reaparece al subir
+  if (navbar) {
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const update = () => {
+      const y = window.scrollY;
+      const menuOpen = menu ? !menu.classList.contains("hidden") : false;
+
+      navbar.dataset.scrolled = String(y > 40);
+
+      const delta = y - lastY;
+      if (Math.abs(delta) > 6) {
+        navbar.dataset.hidden = String(delta > 0 && y > 200 && !menuOpen);
+        lastY = y;
       }
+      if (y <= 200) navbar.dataset.hidden = "false";
+      ticking = false;
+    };
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true }
+    );
+
+    // Si el foco entra a la barra con el teclado, que se muestre
+    navbar.addEventListener("focusin", () => {
+      navbar.dataset.hidden = "false";
     });
+
+    update();
   }
 </script>
