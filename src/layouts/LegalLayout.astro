@@ -1,0 +1,31 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  heading: string;
+  description: string;
+  currentPage?: string;
+}
+
+const { title, heading, description, currentPage = "" } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} currentPage={currentPage}>
+  <main class="w-full">
+    <section class="pt-section-gap pb-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+      <p class="font-subheading-caps text-subheading-caps text-primary mb-6 uppercase tracking-widest">Arias &amp; Zereceda</p>
+      <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-6">{heading}</h1>
+      <p class="font-label-sm text-label-sm text-on-surface-variant">Última actualización: 30 de octubre de 2026</p>
+      <div class="signature-divider-square max-w-2xl mx-auto mt-10">
+        <div class="square"></div>
+      </div>
+    </section>
+
+    <section class="px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto pb-section-gap">
+      <article class="legal font-body-md text-body-md">
+        <slot />
+      </article>
+    </section>
+  </main>
+</BaseLayout>

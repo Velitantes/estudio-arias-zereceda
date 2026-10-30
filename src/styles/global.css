@@ -176,3 +176,39 @@
     transition: none;
   }
 }
+
+/* Páginas legales (Privacidad y Términos) */
+.legal h2 {
+  font-family: var(--font-headline-md);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--color-on-background);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.legal p,
+.legal li {
+  color: var(--color-on-surface-variant);
+  line-height: 1.75;
+}
+
+.legal p {
+  margin-bottom: 1rem;
+}
+
+.legal ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.legal li {
+  margin-bottom: 0.5rem;
+}
+
+.legal a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
